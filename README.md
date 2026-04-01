@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# PeopleFlow 🏢
+# PeopleFlow
 
 A full-stack **Human Capital Management (HCM) & Financial Management** web application built for IT companies. Manage employees, run payroll with historical tracking, and recruit talent — all with role-based access control.
 
