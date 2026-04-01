@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PeopleFlow 🏢
 
 A full-stack **Human Capital Management (HCM) & Financial Management** web application built for IT companies. Manage employees, run payroll with historical tracking, and recruit talent — all with role-based access control.
@@ -235,3 +236,7 @@ docker-compose down -v
 - JWT signed with `JWT_SECRET` from environment — **never commit `.env`**
 - Role enforcement applied at both the API layer (`requireRole` middleware) and frontend (`ProtectedRoute` component) — defense in depth
 - `node_modules/`, `.env`, and build artifacts are excluded from version control via `.gitignore`
+=======
+# PeopleFLow_IT
+A full-stack **Human Capital Management (HCM) &amp; Financial Management** web application built for IT companies. Manage employees, run payroll with historical tracking, and recruit talent — all with role-based access control.
+>>>>>>> 14a3365b147939a59aac6eb155da778effff4139
