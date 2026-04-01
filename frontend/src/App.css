@@ -84,24 +84,56 @@ body {
 .login-page {
   min-height: 100vh;
   display: flex;
+}
+.login-left {
+  flex: 1;
+  background: url('/login-bg.png') center/cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem;
+  position: relative;
+}
+.login-left::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.1) 60%, transparent 100%);
+}
+.login-branding {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+.login-branding h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.login-branding p {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.login-right {
+  width: 460px;
+  min-width: 400px;
+  background: #fff;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1e293b 0%, #4f46e5 100%);
+  padding: 2.5rem;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
 }
 .login-card {
-  background: #fff;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 420px;
+  max-width: 360px;
 }
 .login-header {
   text-align: center;
   margin-bottom: 2rem;
 }
 .login-logo { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
-.login-header h1 { font-size: 1.75rem; color: #1e293b; }
+.login-header h1 { font-size: 1.5rem; color: #1e293b; }
 .login-header p { color: #64748b; font-size: 0.9rem; }
 .login-hint {
   margin-top: 1.5rem;

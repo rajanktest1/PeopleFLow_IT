@@ -26,12 +26,19 @@ export default function Login() {
 
   return (
     <div className="login-page">
-      <div className="login-card">
-        <div className="login-header">
-          <span className="login-logo">🏢</span>
-          <h1>PeopleFlow</h1>
-          <p>HCM & Financial Management</p>
+      <div className="login-left">
+        <div className="login-branding">
+          <h1>Welcome to PeopleFlow.</h1>
+          <p>Connecting global teams across time zones.</p>
         </div>
+      </div>
+      <div className="login-right">
+        <div className="login-card">
+          <div className="login-header">
+            <span className="login-logo">🏢</span>
+            <h1>Sign In</h1>
+            <p>Access your HCM dashboard</p>
+          </div>
         <form onSubmit={handleSubmit}>
           {error && <div className="error-msg">{error}</div>}
           <div className="form-group">
@@ -61,6 +68,7 @@ export default function Login() {
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
+        </div>
       </div>
     </div>
   );
