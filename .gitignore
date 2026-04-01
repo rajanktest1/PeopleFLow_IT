@@ -5,7 +5,29 @@
 *.pem
 *.key
 *.cert
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.crt
+*.der
+*.csr
 CREDENTIALS.md
+*.secret
+*.secrets
+*.local.secrets.yml
+*.local.secrets.yaml
+k8s/secrets.local.yml
+k8s/secrets.local.yaml
+k8s/secrets.generated.yml
+k8s/secrets.generated.yaml
+
+# ===== Cloud & Cluster Credentials =====
+.aws/
+.azure/
+.gcloud/
+.kube/
+*.kubeconfig
 
 # ===== Node.js =====
 node_modules/
@@ -47,3 +69,17 @@ desktop.ini
 # ===== Testing =====
 coverage/
 .nyc_output/
+
+# ===== Terraform =====
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+!terraform/*.tfvars.example
+terraform/.terraform.lock.hcl
+terraform/crash.log
+terraform/override.tf
+terraform/override.tf.json
+terraform/*_override.tf
+terraform/*_override.tf.json
+terraform/*.tfplan
