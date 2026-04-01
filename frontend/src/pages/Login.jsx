@@ -61,10 +61,6 @@ export default function Login() {
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-        <div className="login-hint">
-          <p><strong>Demo accounts:</strong></p>
-          <p>admin / admin123 &nbsp;|&nbsp; hr_user / hr123 &nbsp;|&nbsp; finance_user / finance123</p>
-        </div>
       </div>
     </div>
   );

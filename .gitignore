@@ -5,6 +5,7 @@
 *.pem
 *.key
 *.cert
+CREDENTIALS.md
 
 # ===== Node.js =====
 node_modules/

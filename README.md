@@ -188,16 +188,6 @@ Open **http://localhost:5173** in your browser.
 
 ---
 
-## Demo Accounts
-
-| Username | Password | Role | Access |
-|---|---|---|---|
-| `admin` | `admin123` | Admin | All pages |
-| `hr_user` | `hr123` | HR | Dashboard, Employee Directory, Talent Management |
-| `finance_user` | `finance123` | Finance | Dashboard, Payroll Management |
-
----
-
 ## API Reference
 
 All endpoints except `/api/auth/login` require an `Authorization: Bearer <token>` header.
