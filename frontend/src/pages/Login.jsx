@@ -29,7 +29,7 @@ export default function Login() {
       <div className="login-left">
         <div className="login-branding">
           <h1>Welcome to PeopleFlow.</h1>
-          <p>Connecting global teams across time zones.</p>
+          <p>Connecting global teams.</p>
         </div>
       </div>
       <div className="login-right">
