@@ -1,0 +1,12 @@
+# Copy this file to terraform.tfvars and fill in your values
+# terraform.tfvars is gitignored — never commit it
+
+location          = "East US"
+environment       = "prod"
+acr_name          = "peopleflowacr"    # Must be globally unique, lowercase alphanumeric
+aks_node_count    = 2
+aks_vm_size       = "Standard_B2s"
+aks_min_count     = 1
+aks_max_count     = 3
+db_admin_password = "CHANGE_ME_strong_password_here"
+jwt_secret        = "CHANGE_ME_long_random_string_here"

@@ -17,9 +17,38 @@ const jobRoutes = require('./routes/jobs');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Prometheus metrics
+const promClient = require('prom-client');
+const collectDefaultMetrics = promClient.collectDefaultMetrics;
+collectDefaultMetrics({ prefix: 'peopleflow_' });
+
+const httpRequestCounter = new promClient.Counter({
+  name: 'peopleflow_http_requests_total',
+  help: 'Total number of HTTP requests',
+  labelNames: ['method', 'route', 'status'],
+});
+
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Request counting middleware
+app.use((req, res, next) => {
+  res.on('finish', () => {
+    httpRequestCounter.inc({
+      method: req.method,
+      route: req.route?.path || req.path,
+      status: res.statusCode,
+    });
+  });
+  next();
+});
+
+// Prometheus metrics endpoint (no auth)
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', promClient.register.contentType);
+  res.end(await promClient.register.metrics());
+});
 
 // Public routes
 app.use('/api/auth', authRoutes);
