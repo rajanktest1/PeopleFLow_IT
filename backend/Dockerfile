@@ -1,11 +1,11 @@
 # ---- Stage 1: Build ----
-FROM node:20-alpine AS builder
+FROM node:20-alpine3.21 AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
 # ---- Stage 2: Production ----
-FROM node:20-alpine
+FROM node:20-alpine3.21
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules

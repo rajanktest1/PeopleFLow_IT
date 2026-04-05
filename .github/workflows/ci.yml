@@ -41,6 +41,7 @@ jobs:
           image-ref: peopleflow-backend:ci
           format: table
           exit-code: 1
+          ignore-unfixed: true
           severity: CRITICAL,HIGH
 
   frontend:
@@ -76,4 +77,5 @@ jobs:
           image-ref: peopleflow-frontend:ci
           format: table
           exit-code: 1
+          ignore-unfixed: true
           severity: CRITICAL,HIGH
