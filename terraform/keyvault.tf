@@ -17,10 +17,20 @@ resource "azurerm_key_vault" "main" {
     ]
   }
 
-  # Access for AKS Key Vault CSI driver
+  # Access for AKS Key Vault CSI driver (addon identity)
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = azurerm_kubernetes_cluster.main.key_vault_secrets_provider[0].secret_identity[0].object_id
+
+    secret_permissions = [
+      "Get", "List"
+    ]
+  }
+
+  # Access for AKS kubelet identity (used by pods via workload identity)
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = azurerm_kubernetes_cluster.main.kubelet_identity[0].object_id
 
     secret_permissions = [
       "Get", "List"

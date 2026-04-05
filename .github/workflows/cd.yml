@@ -89,9 +89,15 @@ jobs:
             frontend=${{ env.ACR_LOGIN_SERVER }}/peopleflow-frontend:${IMAGE_TAG} \
             -n ${{ env.NAMESPACE }}
 
-          # Wait for rollouts
-          kubectl rollout status deployment/backend -n ${{ env.NAMESPACE }} --timeout=300s
-          kubectl rollout status deployment/frontend -n ${{ env.NAMESPACE }} --timeout=300s
+          # Wait for rollouts (600s to allow for autoscaler node provisioning)
+          kubectl rollout status deployment/backend -n ${{ env.NAMESPACE }} --timeout=600s || \
+            (echo "=== Backend pod failures ===" && \
+             kubectl describe pods -l app=backend -n ${{ env.NAMESPACE }} | grep -A5 "Warning\|Error\|Failed" && \
+             exit 1)
+          kubectl rollout status deployment/frontend -n ${{ env.NAMESPACE }} --timeout=600s || \
+            (echo "=== Frontend pod failures ===" && \
+             kubectl describe pods -l app=frontend -n ${{ env.NAMESPACE }} | grep -A5 "Warning\|Error\|Failed" && \
+             exit 1)
 
       - name: Verify deployment
         run: |
@@ -100,3 +106,6 @@ jobs:
           echo ""
           echo "=== Services ==="
           kubectl get svc -n ${{ env.NAMESPACE }}
+          echo ""
+          echo "=== Ingress ==="
+          kubectl get ingress -n ${{ env.NAMESPACE }}

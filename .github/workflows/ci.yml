@@ -36,7 +36,7 @@ jobs:
         run: docker build -t peopleflow-backend:ci .
 
       - name: Scan image for vulnerabilities
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.30.0
         with:
           image-ref: peopleflow-backend:ci
           format: table
@@ -71,7 +71,7 @@ jobs:
         run: docker build -t peopleflow-frontend:ci .
 
       - name: Scan image for vulnerabilities
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.30.0
         with:
           image-ref: peopleflow-frontend:ci
           format: table
