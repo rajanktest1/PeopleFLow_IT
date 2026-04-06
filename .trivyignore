@@ -1,0 +1,8 @@
+# Trivy ignore file
+# CVEs listed here are acknowledged and cannot be fixed (unfixed in upstream)
+# Only suppress after confirming: (1) no fix exists, (2) not in app code
+
+# CVE-2026-31802: tar - File overwrite via drive-relative symlink traversal
+# Location: Node.js distribution npm bundled packages (not app dependencies)
+# Status: No upstream fix available as of April 2026
+CVE-2026-31802
