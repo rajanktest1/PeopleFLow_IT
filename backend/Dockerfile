@@ -6,6 +6,8 @@ RUN npm ci --omit=dev
 
 # ---- Stage 2: Production ----
 FROM node:20-alpine3.21
+# Apply latest Alpine security patches
+RUN apk update && apk upgrade --no-cache && rm -rf /var/cache/apk/*
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 # Remove npm/npx/corepack — not needed at runtime, eliminates npm CVEs
 RUN rm -rf /usr/local/lib/node_modules/npm \
